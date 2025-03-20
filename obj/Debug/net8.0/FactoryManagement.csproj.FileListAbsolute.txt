@@ -176,3 +176,6 @@ C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\ne
 C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\obj\Debug\net8.0\FactoryManagement.sourcelink.json
 C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
 C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\net8.0\factory-management-ui\package-lock.json
+C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\net8.0\factory-management-ui\package.json
+C:\Users\Aydin\OneDrive\Desktop\dePayens\Projects\FactoryManagement\bin\Debug\net8.0\factory-management-ui\public\manifest.json

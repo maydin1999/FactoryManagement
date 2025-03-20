@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 
+[Authorize(Roles = "Admin")]  // Sadece Admin
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
@@ -101,6 +102,9 @@ public class UserController : ControllerBase
         var result = await _userManager.CreateAsync(user, model.Password);
         if (!result.Succeeded)
             return BadRequest(result.Errors);
+
+        // Kullanıcıya rol atama
+        await _userManager.AddToRoleAsync(user, model.Role);
 
         return Ok(new { message = "Kullanıcı başarıyla oluşturuldu." });
     }
