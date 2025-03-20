@@ -1,7 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("ProductionOrders")]
 public class ProductionOrder
 {
+    [Key]
     public int OrderID { get; set; }
 
     [Required]
@@ -13,7 +16,7 @@ public class ProductionOrder
 
     [Required]
     [MaxLength(50)]
-    public string Status { get; set; } // 'Pending', 'In Progress', 'Completed', 'Cancelled'
+    public string Status { get; set; }
 
     public DateTime StartDate { get; set; } = DateTime.UtcNow;
     public DateTime? EndDate { get; set; }

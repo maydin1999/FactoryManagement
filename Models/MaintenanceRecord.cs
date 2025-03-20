@@ -1,7 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("MaintenanceRecords")]
 public class MaintenanceRecord
 {
+    [Key]
     public int RecordID { get; set; }
 
     public int MachineID { get; set; }

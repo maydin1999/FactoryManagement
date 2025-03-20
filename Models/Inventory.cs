@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class Inventory
 {
+    [Key]
     public int ItemID { get; set; }
 
     [Required]

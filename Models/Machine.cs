@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("Machines")]
 public class Machine
 {
     public int MachineID { get; set; }
@@ -13,7 +15,7 @@ public class Machine
 
     [Required]
     [MaxLength(50)]
-    public string Status { get; set; } // 'Operational', 'Maintenance', 'Out of Order'
+    public string Status { get; set; }
 
     public DateTime? PurchaseDate { get; set; }
 }

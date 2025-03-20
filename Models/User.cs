@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-public class User : IdentityUser<int>  // Identity için int kullanıyoruz
+[Table("Users")]
+public class User : IdentityUser<int>
 {
     [Required]
     [MaxLength(50)]
