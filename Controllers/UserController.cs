@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -15,6 +16,7 @@ public class UserController : ControllerBase
         _userManager = userManager;
     }
 
+    [Authorize]
     // 🔹 Tüm Kullanıcıları Getir
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetUsers()
@@ -79,4 +81,29 @@ public class UserController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterModel model)
+    {
+        var existingUser = await _userManager.FindByEmailAsync(model.Email);
+        if (existingUser != null)
+            return BadRequest(new { message = "Bu e-posta adresi zaten kayıtlı." });
+
+        var user = new User
+        {
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            UserName = model.Email,
+            Email = model.Email,
+            Role = model.Role
+        };
+
+        var result = await _userManager.CreateAsync(user, model.Password);
+        if (!result.Succeeded)
+            return BadRequest(result.Errors);
+
+        return Ok(new { message = "Kullanıcı başarıyla oluşturuldu." });
+    }
+
+
 }
