@@ -17,6 +17,8 @@ public class UserController : ControllerBase
         _userManager = userManager;
     }
 
+
+    // Sadece Admin Access Token ile erişebilir
     [Authorize]
     // 🔹 Tüm Kullanıcıları Getir
     [HttpGet]
